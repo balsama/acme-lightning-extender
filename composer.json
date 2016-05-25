@@ -17,6 +17,7 @@
     "require": {
         "cweagans/composer-patches": "dev-master",
         "drupal-composer/drupal-scaffold": "^1.2",
+        "composer/installers": "^1.0",
         "drupal/lightning": "8.1.00-rc5"
     },
     "scripts": {
@@ -28,6 +29,29 @@
         ]
     },
     "extra": {
-        "enable-patching": true
+        "enable-patching": true,
+        "patches": {
+            "drupal/core": {
+                "1356276 - inherited install profiles":
+                "https://www.drupal.org/files/issues/make_inherited_install-1356276-133.patch"
+            }
+        },
+        "installer-paths": {
+            "docroot/core": [
+                "drupal/core"
+            ],
+            "docroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "docroot/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "docroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
+        }
     }
 }

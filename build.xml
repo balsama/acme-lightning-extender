@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Acme Lightning Extender" default="build">
+
+  <property name="composer" value="/usr/local/bin/composer" />
+  <property name="rsync" value="/usr/bin/rsync" />
+  <property name="docroot" value="docroot" />
+  <property name="profile" value="${docroot}/profiles/custom" />
+  <property name="site" value="${docroot}/sites/default" />
+
+  <!-- Finds Composer and rsync. -->
+  <target name="env">
+    <if>
+      <not>
+        <available file="${drush}" property="drush.exists" />
+      </not>
+      <then>
+        <exec command="which drush" outputProperty="drush" />
+      </then>
+    </if>
+    <exec command="which composer" outputProperty="composer" />
+    <exec command="which rsync" outputProperty="rsync" />
+  </target>
+
+  <!-- Syncs the profile into the Drupal code base. -->
+  <target name="push" depends="env">
+    <!-- Create the destination if it doesn't exist. -->
+    <mkdir dir="${profile}" />
+
+    <!-- rsync the profile, excluding developer flotsam. -->
+    <filesync destinationDir="${profile}" rsyncPath="${rsync}" sourceDir="acme_lightning_extender" verbose="false" />
+  </target>
+</project>
+

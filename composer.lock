@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "82d700adbf5f429196de285c1b7cbbf2",
-    "content-hash": "a1ef1b19708abc3f4ac13e86961c4c95",
+    "hash": "ffd432f848f9d1853c29f224306c6001",
+    "content-hash": "01c74f188e26c1c3c4b1e684b1baeef5",
     "packages": [
         {
             "name": "codegyre/robo",
@@ -994,6 +994,11 @@
                 "symfony/css-selector": "~2.8"
             },
             "type": "drupal-core",
+            "extra": {
+                "patches_applied": {
+                    "1356276 - inherited install profiles": "https://www.drupal.org/files/issues/make_inherited_install-1356276-133.patch"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Drupal\\Core\\": "lib/Drupal/Core",
@@ -1686,6 +1691,10 @@
             "extra": {
                 "branch-alias": {
                     "dev-8.x-3.x": "8.3.x-dev"
+                },
+                "patches_applied": {
+                    "Generate new UUIDs for displays when switching from default to field storage": "https://www.drupal.org/files/issues/2701349-2.patch",
+                    "Explicitly set the Panels IPE URL root when saving in Panelizer": "https://www.drupal.org/files/issues/panelizer-ipe-url-root-handling.patch"
                 }
             },
             "notification-url": "https://packagist.drupal-composer.org/downloads/",
@@ -1726,6 +1735,11 @@
             "extra": {
                 "branch-alias": {
                     "dev-8.x-3.x": "8.3.x-dev"
+                },
+                "patches_applied": {
+                    "beta4 to 8eba1a0 - quickedit blocks": "https://www.drupal.org/files/issues/panels--beta4-to-8eba1a0.patch",
+                    "2667754 - Allow other modules to disable the IPE based on custom logic": "https://www.drupal.org/files/issues/2667754-3.patch",
+                    "Bandaid tempstore patch": "https://www.drupal.org/files/issues/bandaid.patch"
                 }
             },
             "notification-url": "https://packagist.drupal-composer.org/downloads/",
@@ -1793,6 +1807,9 @@
             "extra": {
                 "branch-alias": {
                     "dev-8.x-1.x": "8.1.x-dev"
+                },
+                "patches_applied": {
+                    "2674874 - Issue saving Schedule Update Type form": "https://www.drupal.org/files/issues/schedule_updates-save_type-2674874-2.patch"
                 }
             },
             "notification-url": "https://packagist.drupal-composer.org/downloads/",
@@ -1939,6 +1956,9 @@
             "extra": {
                 "branch-alias": {
                     "dev-8.x-1.x": "8.1.x-dev"
+                },
+                "patches_applied": {
+                    "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch"
                 }
             },
             "notification-url": "https://packagist.drupal-composer.org/downloads/",
