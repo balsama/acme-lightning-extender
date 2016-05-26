@@ -1,19 +1,31 @@
 diff --git a/lightning.install b/lightning.install
-index 9cac785..f53d91c 100644
+index 9cac785..375a59b 100644
 --- a/lightning.install
 +++ b/lightning.install
-@@ -461,6 +461,14 @@ function lightning_install() {
+@@ -461,9 +461,26 @@ function lightning_install() {
        'page_1' => $display['page_1'],
      ])
      ->save(TRUE);
 +
 +  // Write our additional profile to settings. See:
 +  // https://www.drupal.org/node/1356276
-+  $settings['settings']['profile_directories'] = (object) ['profiles/custom/acme_lightning_extender'];
++  $settings['settings']['profile_directories'] = (object) [
++    'value' => 'profiles/custom/acme_lightning_extender',
++    'required' => TRUE,
++  ];
 +  drupal_rewrite_settings($settings);
-+
-+  // Enable the Acme Lightning Extender Core module after installing Lightning.
-+  \Drupal::service('module_installer')->install(['acme_lightning_extender_core']);
  }
  
  /**
++ * Implements hook_modules_installed().
++ */
++function lightning_modules_installed() {
++  // Enable the Acme Lightning Extender Core module after installing Lightning.
++  \Drupal::service('module_installer')->install(['acme_lightning_extender_core']);
++}
++
++
++/**
+  * Install the body field on the basic block_content type, delete the Create
+  * landing page shortcut, and uninstall the Media Demo Content Module.
+  */
