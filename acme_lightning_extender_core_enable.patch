@@ -1,0 +1,19 @@
+diff --git a/lightning.install b/lightning.install
+index 9cac785..f53d91c 100644
+--- a/lightning.install
++++ b/lightning.install
+@@ -461,6 +461,14 @@ function lightning_install() {
+       'page_1' => $display['page_1'],
+     ])
+     ->save(TRUE);
++
++  // Write our additional profile to settings. See:
++  // https://www.drupal.org/node/1356276
++  $settings['settings']['profile_directories'] = (object) ['profiles/custom/acme_lightning_extender'];
++  drupal_rewrite_settings($settings);
++
++  // Enable the Acme Lightning Extender Core module after installing Lightning.
++  \Drupal::service('module_installer')->install(['acme_lightning_extender_core']);
+ }
+ 
+ /**

@@ -1,0 +1,10 @@
+name: Acme Lightning Extender
+type: profile
+description: 'Custom sub-profile of Lightning that adds customizations for a standard Acme platform.'
+core: 8.x
+
+# This profile runs as a child profile with a dependency on Lightning.
+# Currently, Drupal does not support installing subprofiles, only modules and
+# themes contained in them. Place all code normally run here inside a custom
+# module within this profile.
+

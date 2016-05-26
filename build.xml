@@ -4,7 +4,7 @@
   <property name="composer" value="/usr/local/bin/composer" />
   <property name="rsync" value="/usr/bin/rsync" />
   <property name="docroot" value="docroot" />
-  <property name="profile" value="${docroot}/profiles/custom" />
+  <property name="profile" value="${docroot}/profiles/custom/acme_lightning_extender" />
   <property name="site" value="${docroot}/sites/default" />
 
   <!-- Finds Composer and rsync. -->
@@ -27,7 +27,7 @@
     <mkdir dir="${profile}" />
 
     <!-- rsync the profile, excluding developer flotsam. -->
-    <filesync destinationDir="${profile}" rsyncPath="${rsync}" sourceDir="acme_lightning_extender" verbose="false" />
+    <filesync destinationDir="${profile}" rsyncPath="${rsync}" sourceDir="." verbose="false" exclude=".idea,bin,build.xml,composer.*,.git,.gitignore,${docroot},.travis.yml,vendor" />
   </target>
 </project>
 

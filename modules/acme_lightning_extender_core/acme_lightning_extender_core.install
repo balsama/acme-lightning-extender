@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for Lightning Profile.
+ *
+ * @see system_install()
+ */
+function acme_lightning_extender_core_install() {
+  // Enable and set acmebootstrap as default theme
+  \Drupal::service('theme_handler')->install(['acmebootstrap']);
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('default', 'acmebootstrap')
+    ->save(TRUE);
+}
+

@@ -1,0 +1,5 @@
+name: Acme Lightning Extender
+type: module
+description: 'Module acting as sub-profile.'
+core: 8.x
+
