@@ -1,3 +1,6 @@
+# Deprecated. Don't use this.
+See: https://github.com/balsama/acme-lightning-extend
+
 ## Lightning Extender
 This is a proof of concept showing that a "sibling" profile can be used to extend the funtionality of the installed profile. In this case, "Lightning" is the Installed Profile, and Acme Lightning Extender is the Sibling Profile.
 
